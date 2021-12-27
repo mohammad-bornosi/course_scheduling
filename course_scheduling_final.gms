@@ -24,7 +24,7 @@ Parameter
     a(c,p)
     b(p,d,h);
 
-$GDXIN 'C:\\Users\\Mohamadreza.a\\Downloads\\course_scheduling\\data.gdx'
+$GDXIN %gdxincname%
 $LOAD j, c, p, d, h, sca, s, k, hbar, dlast, n, t, a, b
 $GDXIN
 
