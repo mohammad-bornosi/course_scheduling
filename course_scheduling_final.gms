@@ -56,12 +56,12 @@ obj;
 
 const1(c)..
          sum( (d,h), x(c,d,h) ) =e= n(c);
-const2(d,h,hp)$(t(h,hp)=1)..
-         sum((c), x(c,d,h)+x(c,d,hp)) =l= k('1');
-const3(d,h,p,hp)$(t(h,hp)=1)..
-         sum((c)$(a(c,p) =1), x(c,d,hp)+x(c,d,h)) =l= 1;
-const4(d,h,j,hp)$(t(h,hp)=1)..
-         sum((c)$(s(j,c)=1), x(c,d,hp)+x(c,d,h)) =l= 1;
+const2(d,h,hp)..
+         sum((c)$(t(h,hp)=1 or t(hp,h)=1), x(c,d,hp)) + sum((c),x(c,d,h)) =l= k('1');
+const3(d,h,p,hp)..
+         sum((c)$(a(c,p) =1 and(t(h,hp)=1 or t(hp,h)=1)), x(c,d,hp)) + sum((c)$(a(c,p)=1),x(c,d,h)) =l= 1;
+const4(d,h,j,hp)..
+         sum((c)$(s(j,c)=1 and(t(h,hp)=1  or t(hp,h)=1)), x(c,d,hp)) + sum((c)$(s(j,c)=1),x(c,d,h)) =l= 1;
 const5(d,h,c,p)$(a(c,p)=1)..
          x(c,d,h) =l= b(p,d,h);
 const6(c,d)$(n(c)>1)..
@@ -73,16 +73,27 @@ const8(c,d)$( n(c)>1 and d.val < dlast('1'))..
 const9(c,d,h)$(n(c)>1)..
          sum((dp,hp)$(d.val <> dp.val and h.val <> hp.val), x(c,dp,hp)) -1*(n(c)-1)*y(c) =l= 21*(1-x(c,d,h));
 const10..
-         w =e= 0  ;
+         w =e= 4  ;
 const11..
          sum((c,d)$(n(c)>1 and d.val < dlast('1')), v(c,d) ) =e= 0 ;
 
 obj..
-     z =e= sum( (c)$(n(c)>1),y(c) )  ;
+    z =e= sum( (c)$(n(c)>1),y(c) )  ;
 
 
 * 6) introducing the model
-model mod/all/;
+model mod/const1,
+const2,
+const3,
+const4,
+const5,
+const6,
+const7,
+const8,
+const9,
+const10,
+const11,
+obj/;
 
 
 *  7) solve command
