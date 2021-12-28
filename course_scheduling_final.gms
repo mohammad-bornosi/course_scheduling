@@ -24,9 +24,9 @@ Parameter
     a(c,p)
     b(p,d,h);
 
-*$GDXIN C:\\Users\\Mohamadreza.a\\Downloads\\course_scheduling\\gdxincname_01.gdx
-$GDXIN C:\\Users\\Mohamadreza.a\\Downloads\\course_scheduling\\gdxincname_02.gdx
-*$GDXIN C:\\Users\\Lenovo\\Documents\\GAMSStudio\\workspace\\course_scheduling\\gdxincname_01.gdx
+*$GDXIN 'C:\\Users\\Mohamadreza.a\\Downloads\\course_scheduling\\gdxincname_01.gdx'
+*$GDXIN C:\\Users\\Mohamadreza.a\\Downloads\\course_scheduling\\gdxincname_02.gdx
+$GDXIN C:\\Users\\Lenovo\\Documents\\GAMSStudio\\workspace\\course_scheduling\\gdxincname_01.gdx
 *$GDXIN C:\\Users\\Lenovo\\Documents\\GAMSStudio\\workspace\\course_scheduling\\gdxincname_02.gdx
 *$GDXIN %gdxincname_01%
 *$GDXIN %gdxincname_02%
@@ -81,9 +81,9 @@ const9(c,d,h)$(n(c)>1)..
 
 ************** Note: for data_01 put const10 = 6 and const11 = 1 ***************
 const10..
-         w =e= 7  ;
+         w =e= 6  ;
 const11..
-         sum((c,d)$(n(c)>1 and d.val < dlast('1')), v(c,d) ) =e= 0 ;
+         sum((c,d)$(n(c)>1 and d.val < dlast('1')), v(c,d) ) =e= 1 ;
 
 obj..
     z =e= sum( (c)$(n(c)>1),y(c) )  ;
