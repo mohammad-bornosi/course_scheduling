@@ -80,6 +80,7 @@ const9(c,d,h)$(n(c)>1)..
 
 
 ************** Note: for data_01 put const10 = 6 and const11 = 1 ***************
+************** Note: for data_02 put const10 = 7 and const11 = 0 ***************
 const10..
          w =e= 6  ;
 const11..

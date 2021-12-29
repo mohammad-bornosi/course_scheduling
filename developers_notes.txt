@@ -1,0 +1,17 @@
+note1: course 6 does not belong to any set ( we have 6 sets)
+note2: some courses belong to more than 1 set
+note3: although last_day is 5, we have 8 days in our DB !
+
+------------------
+clarifications:
+
+c1: room_handler function use this fact that time intervals 1,2,3,4 are mutually exclusive. The same for time  intervals 4,5,6,7,8,9.
+
+c2: our way for labeling courses on the printed schedule table is {name of sets to which the course belongs} + Double zero + Course_id
+
+c3: color codes are as follows:
+       if the course does not belong to any set:
+	its color_id = 0
+       otherwise:
+	its color_if = id of the first set to which the course belongs
+
