@@ -1,4 +1,4 @@
-option MIP = Cplex ;
+         option MIP = Cplex ;
 option optcr = 0;
 option intvarUp = 0;
 
@@ -24,9 +24,12 @@ Parameter
     a(c,p)
     b(p,d,h);
 
-$GDXIN C:\\Users\\Mohamadreza.a\\Downloads\\course_scheduling\\gdxincname.gdx
-*$GDXIN C:\\Users\\Lenovo\\Documents\\GAMSStudio\\workspace\\course_scheduling\\gdxincname.gdx
-*$GDXIN %gdxincname%
+*$GDXIN 'C:\\Users\\Mohamadreza.a\\Downloads\\course_scheduling\\gdxincname_01.gdx'
+*$GDXIN C:\\Users\\Mohamadreza.a\\Downloads\\course_scheduling\\gdxincname_02.gdx
+$GDXIN C:\\Users\\Lenovo\\Documents\\GAMSStudio\\workspace\\course_scheduling\\gdxincname_01.gdx
+*$GDXIN C:\\Users\\Lenovo\\Documents\\GAMSStudio\\workspace\\course_scheduling\\gdxincname_02.gdx
+*$GDXIN %gdxincname_01%
+*$GDXIN %gdxincname_02%
 $LOAD j, c, p, d, h, sca, s, k, hbar, dlast, n, t, a, b
 $GDXIN
 
@@ -74,10 +77,14 @@ const8(c,d)$( n(c)>1 and d.val < dlast('1'))..
          sum(h, x(c,d,h)) + sum(h, x(c,d+1,h))-v(c,d) =l= 1;
 const9(c,d,h)$(n(c)>1)..
          sum((dp,hp)$(d.val <> dp.val and h.val <> hp.val), x(c,dp,hp)) -1*(n(c)-1)*y(c) =l= 21*(1-x(c,d,h));
+
+
+************** Note: for data_01 put const10 = 6 and const11 = 1 ***************
+************** Note: for data_02 put const10 = 7 and const11 = 0 ***************
 const10..
-         w =e= 4  ;
+         w =e= 6  ;
 const11..
-         sum((c,d)$(n(c)>1 and d.val < dlast('1')), v(c,d) ) =e= 0 ;
+         sum((c,d)$(n(c)>1 and d.val < dlast('1')), v(c,d) ) =e= 1 ;
 
 obj..
     z =e= sum( (c)$(n(c)>1),y(c) )  ;

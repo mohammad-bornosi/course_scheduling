@@ -1,4 +1,4 @@
-         option MIP = Cplex ;
+option MIP = Cplex ;
 option optcr = 0;
 option intvarUp = 0;
 
